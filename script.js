@@ -637,9 +637,9 @@ if (funding) {
   funding.querySelector('.funding-goal').textContent   = euros(goal);
   funding.querySelector('.funding-pct').textContent    = pct + ' %';
   funding.querySelector('.funding-sponsors').textContent =
-    sponsors === 0 ? "Aucun sponsor pour l'instant, soyez le premier !"
-    : sponsors === 1 ? '1 sponsor nous soutient déjà, merci !'
-    : `${sponsors} sponsors nous soutiennent déjà, merci !`;
+    sponsors === 0 ? "Aucun partenaire pour l'instant, soyez le premier !"
+    : sponsors === 1 ? '1 partenaire nous soutient déjà, merci !'
+    : `${sponsors} partenaires nous soutiennent déjà, merci !`;
 
   const bar = funding.querySelector('.funding-bar');
   bar.setAttribute('aria-valuemax', goal);

@@ -172,13 +172,13 @@
       <p class="hero-subtitle">Toulouse &rarr; Barcelone &rarr; Essaouira</p>
       <p class="hero-dates">15/10/2027 &nbsp;&rarr;&nbsp; 24/10/2027</p>
       <!-- Compte à rebours : date de départ dans data-start, fin du raid dans data-end -->
-      <div class="countdown" id="countdown" data-start="2027-10-15T08:00:00+02:00" data-end="2027-10-24T20:00:00+02:00" aria-live="off" hidden>
+      <div class="countdown" id="countdown" data-start="2027-10-15T08:00:00+02:00" data-end="2027-10-24T20:00:00+02:00" hidden>
         <span class="countdown-label">Départ dans</span>
         <div class="countdown-units">
-          <div class="countdown-unit"><span class="countdown-num" data-unit="days">0</span><span class="countdown-txt">jours</span></div>
-          <div class="countdown-unit"><span class="countdown-num" data-unit="hours">00</span><span class="countdown-txt">h</span></div>
-          <div class="countdown-unit"><span class="countdown-num" data-unit="minutes">00</span><span class="countdown-txt">min</span></div>
-          <div class="countdown-unit"><span class="countdown-num" data-unit="seconds">00</span><span class="countdown-txt">s</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="days">0</span><span class="countdown-txt">Jours</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="hours">00</span><span class="countdown-txt">Heures</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="minutes">00</span><span class="countdown-txt">Min</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="seconds">00</span><span class="countdown-txt">Sec</span></div>
         </div>
       </div>
       <div class="hero-ctas">
@@ -597,20 +597,21 @@
       </div>
       <h2 class="section-title text-center fade-up" data-animate>NOTRE BUDGET</h2>
 
-      <!-- Jauge de financement : mettre à jour data-raised (€ collectés) et data-sponsors (nombre de sponsors) -->
+      <!-- Jauge « budget couvert » : mettre à jour data-raised (€ reçus + valeur des dons en nature) et data-sponsors (nombre de sponsors) -->
       <div class="funding fade-up" data-animate id="funding" data-raised="0" data-goal="10400" data-sponsors="0">
-        <div class="funding-head">
-          <span class="funding-label">Financement</span>
-          <span class="funding-amount"><strong class="funding-raised">0 €</strong> / <span class="funding-goal">10 400 €</span></span>
+        <div class="funding-top">
+          <div class="funding-figures">
+            <span class="funding-label">Budget couvert &middot; dons financiers &amp; en nature</span>
+            <p class="funding-amount"><span class="funding-raised">0 €</span><span class="funding-goal">/ 10 400 €</span></p>
+          </div>
+          <div class="funding-side">
+            <p class="funding-sponsors">Aucun partenaire pour l'instant, soyez le premier !</p>
+            <a href="#soutenir" class="funding-link js-open-sponsor-modal">Devenir sponsor <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </div>
-        <div class="funding-bar" role="progressbar" aria-label="Financement collecté" aria-valuemin="0" aria-valuemax="10400" aria-valuenow="0">
-          <div class="funding-fill"></div>
+        <div class="funding-bar" role="progressbar" aria-label="Part du budget couverte" aria-valuemin="0" aria-valuemax="10400" aria-valuenow="0">
+          <div class="funding-fill"><span class="funding-pct">0 %</span></div>
         </div>
-        <div class="funding-foot">
-          <span class="funding-pct">0 %</span>
-          <span class="funding-sponsors">Aucun sponsor pour l'instant, soyez le premier !</span>
-        </div>
-        <a href="#soutenir" class="btn btn-orange funding-cta js-open-sponsor-modal">Devenir sponsor</a>
       </div>
 
       <div class="budget-grid">
