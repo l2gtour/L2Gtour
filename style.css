@@ -1990,7 +1990,7 @@ strong { font-weight: 700; }
   .section-intro { margin-bottom: 24px; }
 
   /* --- Hero --- */
-  .hero-content { padding: 60px 20px 80px; }
+  .hero-content { padding: 60px 20px 130px; } /* place pour « Défiler » sous les boutons */
   .hero-scroll { margin-top: -30px; }
 
   /* --- Navigation --- */
