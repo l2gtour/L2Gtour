@@ -652,3 +652,18 @@ if (funding) {
     obs.disconnect();
   }, { threshold: 0.4 }).observe(funding);
 }
+
+/* ——— MENTIONS LÉGALES (fenêtre) ——— */
+const legalModal = document.getElementById('legalModal');
+
+if (legalModal) {
+  const openLegal  = (e) => { e.preventDefault(); legalModal.classList.add('is-active'); document.body.style.overflow = 'hidden'; };
+  const closeLegal = () => { legalModal.classList.remove('is-active'); document.body.style.overflow = ''; };
+
+  document.querySelectorAll('.js-open-legal').forEach(a => a.addEventListener('click', openLegal));
+  document.getElementById('closeLegal').addEventListener('click', closeLegal);
+  legalModal.addEventListener('click', (e) => { if (e.target === legalModal) closeLegal(); });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && legalModal.classList.contains('is-active')) closeLegal();
+  });
+}

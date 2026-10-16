@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -566,8 +567,14 @@ onResize();
 
 // ── GLTF Load ──────────────────────────────────────────────────────────────
 function loadModel() {
-  new GLTFLoader().load(
-    'models/scene.gltf',
+  // Modèle compressé avec Draco (20 Mo → 1,6 Mo), décodeur chargé depuis le CDN de three
+  const draco = new DRACOLoader();
+  draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/libs/draco/gltf/');
+  const loader = new GLTFLoader();
+  loader.setDRACOLoader(draco);
+
+  loader.load(
+    'models/scene.glb',
     gltf => {
       const model = gltf.scene;
 

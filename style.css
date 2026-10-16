@@ -2665,3 +2665,36 @@ strong { font-weight: 700; }
   .mc-person { flex-direction: column; align-items: flex-start; gap: 4px; }
   .modal-title { font-size: 2.2rem; }
 }
+
+/* Source sous une statistique (section visibilité) */
+.comm-stat-src {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.68rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   MENTIONS LÉGALES
+   ============================================================ */
+.legal-card { max-width: 640px; }
+.legal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+.legal-body h3 {
+  margin: 20px 0 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.legal-body h3:first-child { margin-top: 0; }
+.legal-body a { color: var(--orange); }
