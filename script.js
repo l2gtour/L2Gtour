@@ -585,3 +585,70 @@ if (sponsorModal && closeModalBtn) {
     if (e.key === 'Escape' && sponsorModal.classList.contains('is-active')) closeModal();
   });
 }
+
+/* ——— COMPTE À REBOURS avant le départ ——— */
+const countdown = document.getElementById('countdown');
+
+if (countdown) {
+  const startAt = new Date(countdown.dataset.start).getTime();
+  const endAt   = new Date(countdown.dataset.end).getTime();
+  const label   = countdown.querySelector('.countdown-label');
+  const units   = countdown.querySelector('.countdown-units');
+  const num     = (u) => countdown.querySelector(`[data-unit="${u}"]`);
+  const pad     = (n) => String(n).padStart(2, '0');
+
+  const updateCountdown = () => {
+    const now = Date.now();
+    if (now >= endAt) {
+      label.textContent = 'Raid terminé, merci à tous !';
+      units.hidden = true;
+      return false;
+    }
+    if (now >= startAt) {
+      label.textContent = "C'est parti ! Suivez-nous sur @l2g_tour";
+      units.hidden = true;
+      return true;
+    }
+    const s = Math.floor((startAt - now) / 1000);
+    num('days').textContent    = Math.floor(s / 86400).toLocaleString('fr-FR');
+    num('hours').textContent   = pad(Math.floor(s / 3600) % 24);
+    num('minutes').textContent = pad(Math.floor(s / 60) % 60);
+    num('seconds').textContent = pad(s % 60);
+    return true;
+  };
+
+  countdown.hidden = false;
+  if (updateCountdown()) {
+    const timer = setInterval(() => { if (!updateCountdown()) clearInterval(timer); }, 1000);
+  }
+}
+
+/* ——— JAUGE DE FINANCEMENT ——— */
+const funding = document.getElementById('funding');
+
+if (funding) {
+  const raised   = parseInt(funding.dataset.raised) || 0;
+  const goal     = parseInt(funding.dataset.goal) || 1;
+  const sponsors = parseInt(funding.dataset.sponsors) || 0;
+  const pct      = Math.min(Math.round((raised / goal) * 100), 100);
+  const euros    = (n) => n.toLocaleString('fr-FR') + ' €';
+
+  funding.querySelector('.funding-raised').textContent = euros(raised);
+  funding.querySelector('.funding-goal').textContent   = euros(goal);
+  funding.querySelector('.funding-pct').textContent    = pct + ' %';
+  funding.querySelector('.funding-sponsors').textContent =
+    sponsors === 0 ? "Aucun sponsor pour l'instant, soyez le premier !"
+    : sponsors === 1 ? '1 sponsor nous soutient déjà, merci !'
+    : `${sponsors} sponsors nous soutiennent déjà, merci !`;
+
+  const bar = funding.querySelector('.funding-bar');
+  bar.setAttribute('aria-valuemax', goal);
+  bar.setAttribute('aria-valuenow', raised);
+
+  // La barre se remplit quand la jauge devient visible
+  new IntersectionObserver((entries, obs) => {
+    if (!entries[0].isIntersecting) return;
+    funding.querySelector('.funding-fill').style.width = pct + '%';
+    obs.disconnect();
+  }, { threshold: 0.4 }).observe(funding);
+}

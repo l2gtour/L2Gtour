@@ -1767,6 +1767,110 @@ strong { font-weight: 700; }
 }
 
 /* ============================================================
+   COMPTE À REBOURS (hero)
+   ============================================================ */
+.countdown {
+  margin: -18px 0 36px 4px;
+  opacity: 0;
+  animation: slideUp 0.8s ease 1.35s forwards;
+}
+.countdown[hidden] { display: none; }
+.countdown-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 10px;
+}
+.countdown-units { display: flex; gap: 10px; }
+.countdown-units[hidden] { display: none; }
+.countdown-unit {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--r-sm);
+  background: rgba(21, 8, 5, 0.28);
+  backdrop-filter: blur(4px);
+}
+.countdown-num {
+  font-family: var(--font-h);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.countdown-unit:first-child .countdown-num { color: var(--orange); }
+.countdown-txt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============================================================
+   JAUGE DE FINANCEMENT (budget)
+   ============================================================ */
+.funding {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  padding: 24px 28px;
+  background: var(--dark);
+  color: var(--cream);
+  border-radius: var(--r);
+  text-align: center;
+}
+.funding-head, .funding-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.funding-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--tan);
+}
+.funding-amount {
+  font-family: var(--font-h);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+}
+.funding-raised { color: var(--orange); font-size: 1.9rem; font-weight: 400; }
+.funding-bar {
+  height: 14px;
+  margin: 14px 0 10px;
+  border-radius: 999px;
+  background: rgba(242, 237, 224, 0.14);
+  overflow: hidden;
+}
+.funding-fill {
+  width: 0;
+  min-width: 14px; /* reste visible même à 0 % */
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--orange-dk), var(--orange));
+  transition: width 1.6s cubic-bezier(.22, 1, .36, 1);
+}
+.funding-foot { font-size: 0.85rem; color: rgba(242, 237, 224, 0.75); text-align: left; }
+.funding-pct { font-weight: 700; color: var(--cream); }
+.funding-cta { margin-top: 20px; }
+
+@media (max-width: 600px) {
+  .countdown-units { gap: 6px; }
+  .countdown-unit { padding: 7px 9px; }
+  .funding { padding: 20px 18px; margin: 0 var(--pad-x) 36px; }
+  .funding-head, .funding-foot { justify-content: center; text-align: center; }
+}
+
+/* ============================================================
    KEYFRAMES
    ============================================================ */
 @keyframes slideUp {

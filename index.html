@@ -171,6 +171,16 @@
       </h1>
       <p class="hero-subtitle">Toulouse &rarr; Barcelone &rarr; Essaouira</p>
       <p class="hero-dates">15/10/2027 &nbsp;&rarr;&nbsp; 24/10/2027</p>
+      <!-- Compte à rebours : date de départ dans data-start, fin du raid dans data-end -->
+      <div class="countdown" id="countdown" data-start="2027-10-15T08:00:00+02:00" data-end="2027-10-24T20:00:00+02:00" aria-live="off" hidden>
+        <span class="countdown-label">Départ dans</span>
+        <div class="countdown-units">
+          <div class="countdown-unit"><span class="countdown-num" data-unit="days">0</span><span class="countdown-txt">jours</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="hours">00</span><span class="countdown-txt">h</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="minutes">00</span><span class="countdown-txt">min</span></div>
+          <div class="countdown-unit"><span class="countdown-num" data-unit="seconds">00</span><span class="countdown-txt">s</span></div>
+        </div>
+      </div>
       <div class="hero-ctas">
         <a href="#soutenir" class="btn btn-orange js-open-sponsor-modal">Devenir Sponsor</a>
         <a href="#le-projet" class="btn btn-outline-white">Découvrir l'aventure</a>
@@ -587,6 +597,22 @@
       </div>
       <h2 class="section-title text-center fade-up" data-animate>NOTRE BUDGET</h2>
 
+      <!-- Jauge de financement : mettre à jour data-raised (€ collectés) et data-sponsors (nombre de sponsors) -->
+      <div class="funding fade-up" data-animate id="funding" data-raised="0" data-goal="10400" data-sponsors="0">
+        <div class="funding-head">
+          <span class="funding-label">Financement</span>
+          <span class="funding-amount"><strong class="funding-raised">0 €</strong> / <span class="funding-goal">10 400 €</span></span>
+        </div>
+        <div class="funding-bar" role="progressbar" aria-label="Financement collecté" aria-valuemin="0" aria-valuemax="10400" aria-valuenow="0">
+          <div class="funding-fill"></div>
+        </div>
+        <div class="funding-foot">
+          <span class="funding-pct">0 %</span>
+          <span class="funding-sponsors">Aucun sponsor pour l'instant, soyez le premier !</span>
+        </div>
+        <a href="#soutenir" class="btn btn-orange funding-cta js-open-sponsor-modal">Devenir sponsor</a>
+      </div>
+
       <div class="budget-grid">
         <div class="budget-left fade-up" data-animate>
           <div class="chart-wrap">
@@ -941,7 +967,7 @@
 
       <div class="empl-info">
         <div class="empl-text-block">
-          <p>Il est possible de réserver plusieurs emplacements (afin d'obtenir un écart publicitaire plus grand), ou au contraire de les diviser.</p>
+          <p>Il est possible de réserver plusieurs emplacements (afin d'obtenir un encart publicitaire plus grand), ou au contraire de les diviser.</p>
           <p>Votre logo ou nom d'entreprise sera apposé sur notre Clio à l'emplacement choisi ainsi que sur notre page Instagram.</p>
         </div>
         <div class="empl-legal-block">
@@ -993,7 +1019,7 @@
         <div class="section-rule"></div>
       </div>
       <h2 class="section-title text-center fade-up" data-animate>VOTRE EMPLACEMENT</h2>
-      <p class="section-intro text-center fade-up" data-animate data-delay="100">Il est possible de réserver <strong>plusieurs emplacements</strong> pour obtenir un écart publicitaire plus grand, ou au contraire de les diviser. Votre <strong>logo ou nom d'entreprise</strong> sera apposé sur notre Clio à l'emplacement choisi ainsi que sur notre page Instagram.</p>
+      <p class="section-intro text-center fade-up" data-animate data-delay="100">Il est possible de réserver <strong>plusieurs emplacements</strong> pour obtenir un encart publicitaire plus grand, ou au contraire de les diviser. Votre <strong>logo ou nom d'entreprise</strong> sera apposé sur notre Clio à l'emplacement choisi ainsi que sur notre page Instagram.</p>
 
       <div class="car-wrap fade-up" data-animate data-delay="200">
         <!-- 3D Car viewer -->
